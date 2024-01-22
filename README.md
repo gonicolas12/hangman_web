@@ -1,7 +1,7 @@
-# Hangman Game in Go
+# Hangman Web
 
 ## Overview
-Welcome to the Hangman game in Go! This classic word-guessing game challenges players to guess a word by suggesting letters within a certain number of guesses.
+Welcome to the Hangman game ! This classic word-guessing game challenges players to guess a word by suggesting letters within a certain number of guesses.
 
 ## Installation
 1. Clone the repository.
@@ -27,6 +27,3 @@ Welcome to the Hangman game in Go! This classic word-guessing game challenges pl
 - Average : the number of letters that are revealed at the beginning of the game is the length of the word divided by 2 minus 2
 - Hard : only one letter is reavealed at the beginning of the game
 - Extreme : there are no letters reavealed at the beginning of the game
-
-## Contributing
-Feel free to fork the repository and submit pull requests.
