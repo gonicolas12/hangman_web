@@ -1,28 +1,29 @@
-<!Doctype html>
-<html lang="pt">
-    <head>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu de Devinette</title>
+</head>
 <body>
+    <h1>Je suis un nombre entre 1 et 10. Quel nombre suis-je ?</h1>
+    <input type="number" id="guessInput" placeholder="Entrez votre supposition ici" min="1" max="10">
+    <button onclick="submitGuess()">Deviner</button>
+    <div id="result"></div>
 
-
-
-<h1 style="color: red;font-size: 45px;" title="Assim seja">ANGOLA VENCE CAN 2024!!!!</h1>
-
-
-<p style="font-size: 20px;" title="Vão pensar que é mbiembiembé">ANGOLA jogou muito nessa can, nem sei o que dizer, muitos subestimaram os palancas negras e acabaram engolindo as suas palavras</p>
-<img src="https://freesvg.id/products" alt="Soco na cara" width="104" height="142">
-<a href="https://www.youtube.com/" title="CLICA então!">Clica aqui amigão :)</a>
-<hr>
-<p title="Boa sorte filhão!" style="font: size 20px;">Tenho 5 meses<br> Para me tornar desenvolvedor frontend<br> Terei que dominar Html,Css e JavaScript.</p>
-<hr>
-<pre title="Boa sorte filhão!" style="font: size 20px;">
-Tenho 5 meses
-Para me tornar desenvolvedor frontend
-Terei que dominar Html,Css e JavaScript.
-</pre>
-
-
-
+    <script>
+        function submitGuess() {
+            const guess = document.getElementById('guessInput').value;
+            fetch('/guess', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'guess=' + guess
+            })
+            .then(response => response.text())
+            .then(text => document.getElementById('result').textContent = text)
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
 </body>
 </html>

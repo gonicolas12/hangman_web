@@ -1,28 +1,15 @@
 package main
 
-// NOT finished
-
 import (
 	"fmt"
-	"log"
-
-	"hangman_web/pkg/hangman_classic"
-
-	"../web"
+	"net/http"
 )
 
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello from Go!")
+}
+
 func main() {
-	// Create a new instance of the Hangman game
-	game := hangman_classic.NewGame()
-
-	// Create a new instance of the Hangman web server
-	server := web.NewServer(game)
-
-	// Start the web server
-	err := server.Start()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("Hangman game started. Open your browser and visit http://localhost:8080 to play!")
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", nil)
 }
