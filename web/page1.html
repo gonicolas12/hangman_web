@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma première page HTML</title>
+    <title>Hangman-Wevb</title>
+    <link rel="icon" type="image/x-icon" href="./image/favicon.ico">
     <link rel="stylesheet" href="./css/page1.css">
 </head>
 <body>
+    <div id="hangman">
+        <img id="hangman-image" src="" alt="Pendu" style="width: 30%; height: 30%;">
+    </div>
+    <div id="word"></div>
+    <div id="letters"></div>
+    <form id="guessForm">
+        <input type="text" id="guessInput">
+        <button type="submit">Soumettre</button>
+    </form>
 
         <img src="./image/clouds.png" class="clouds">
-        <img src="./image/pendu.png" class="pendu">
         <img src="./image/grass1.png" class="grass1">
         <img src="./image/grass2.png" class="grass2">
         <img src="./image/grass3.png" class="grass3">
@@ -17,5 +26,53 @@
         <img src="./image/grass5.png" class="grass5">
         <img src="./image/grass6.png" class="grass6">
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeGame();
+        });
+
+        function initializeGame() {
+            fetch('/guess', { method: 'GET' })
+                .then(response => response.json())
+                .then(data => {
+                    updateDisplay(data);
+                });
+        }
+
+        function sendGuess(guess) {
+            fetch('/guess', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ guess: guess }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                updateDisplay(data);
+            });
+        }
+
+        function updateDisplay(gameState) {
+            const hangmanImage = document.getElementById('hangman-image');
+            const stage = 10 - gameState.Attempts;
+            hangmanImage.src = gameState.HangmanPositions[stage];
+
+            const wordElement = document.getElementById('word');
+            wordElement.textContent = gameState.WordToGuess.split('').map(char => {
+                return gameState.GuessedLetters.includes(char) ? char : '_';
+            }).join(' ');
+
+            const lettersElement = document.getElementById('letters');
+            lettersElement.textContent = gameState.GuessedLetters.split('').join(' ');
+        }
+
+        document.getElementById('guessForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const guess = document.getElementById('guessInput').value;
+            sendGuess(guess);
+            document.getElementById('guessInput').value = '';
+        });
+    </script>
 </body>
 </html>
