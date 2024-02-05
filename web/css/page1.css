@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Utilise 100% de la hauteur de la vue */
+  background: linear-gradient(#87CEEB, #E0F6FF);
+  overflow: hidden; 
+  }
+
+
+  
+.clouds {
+    position: absolute;
+    width: 350px;
+    animation: clouds-animation 20s infinite linear;
+  }
+  
+.pendu {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    width: 400px;
+  }
+
+  .grass1 {
+    position: absolute;
+    top: 92%;
+    left: -2%;
+    width:400px;
+  }
+  
+  .grass2 {
+    position: absolute;
+    top: 92%;
+    left: 12%;
+    width:400px;
+  }
+  
+  .grass3 {
+    position: absolute;
+    top: 92%;
+    left: 32%;
+    width:400px;
+  }
+  
+  .grass4 {
+    position: absolute;
+    top: 92%;
+    left: 52%;
+    width:400px;
+  }
+  
+  .grass5 {
+    position: absolute;
+    top: 92%;
+    left: 72%;
+    width:400px;
+  }
+  
+  
+  .grass6 {
+    position: absolute;
+    top: 92%;
+    left: 92%;
+    width:400px;
+  }
+  
+  
+  @keyframes clouds-animation {
+    from {
+      right: -600px;
+    }
+  
+    to {
+      right: 100%;
+    }
+    
+  }
+  

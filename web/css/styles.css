@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body  {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Utilise 100% de la hauteur de la vue */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: linear-gradient(#87CEEB, #E0F6FF);
+  overflow: hidden; 
+
+}
+
+.btn {
+  position: absolute;
+  top: 65%;
+  left: 49%;
+  padding: 12px 10px;
+  width: 100px;
+  color: yellow;
+  background: #894A08;
+  border: 1px solid #555;
+  border-radius: 5px;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+
+.btn:hover{
+  background:#c56b0b;
+  transition: background 0.5s;
+
+}
+
+.music {
+    position: fixed;
+    bottom: 180px;
+    left: 10px;
+  }
+
+
+.hangman {
+  position: absolute;
+  top: 50%;
+  left:35%;
+  max-width: auto;
+  width: auto; /* Assure-toi que la largeur s'ajuste automatiquement */
+  height: auto;
+  transform: translate(-50%,-50%);
+  animation: hangman-animation 2s infinite linear;
+}
+
+@media (max-width: 768px) {
+  .hangman {
+    max-width: 70%; /* Modifie la largeur maximale pour des écrans de 768 pixels de largeur ou moins */
+  }
+
+}
+
+.clouds {
+  position: absolute;
+  width: 350px;
+  animation: clouds-animation 20s infinite linear;
+}
+
+.pendu {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  width: 400px;
+}
+
+.grass1 {
+  position: absolute;
+  top: 92%;
+  left: -2%;
+  width:400px;
+}
+
+.grass2 {
+  position: absolute;
+  top: 92%;
+  left: 12%;
+  width:400px;
+}
+
+.grass3 {
+  position: absolute;
+  top: 92%;
+  left: 32%;
+  width:400px;
+}
+
+.grass4 {
+  position: absolute;
+  top: 92%;
+  left: 52%;
+  width:400px;
+}
+
+.grass5 {
+  position: absolute;
+  top: 92%;
+  left: 72%;
+  width:400px;
+}
+
+
+.grass6 {
+  position: absolute;
+  top: 92%;
+  left: 92%;
+  width:400px;
+}
+
+
+@keyframes clouds-animation {
+  from {
+    right: -600px;
+  }
+
+  to {
+    right: 100%;
+  }
+  
+}
+
+@keyframes hangman-animation {
+  0%{
+    transform:translateY(0px) ;
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+  
+}
+
