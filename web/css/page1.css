@@ -20,46 +20,51 @@ body {
     animation: clouds-animation 20s infinite linear;
   }
   
-.pendu {
+  .pendu {
     position: absolute;
-    bottom: 0;
+    top: 51%;
     right: 10px;
-    width: 400px;
+    width: 26%;
   }
 
   .grass1 {
     position: absolute;
     top: 92%;
     left: -2%;
-    width:400px;
+    width:25%;
+    height:8%;
   }
   
   .grass2 {
     position: absolute;
     top: 92%;
     left: 12%;
-    width:400px;
+    width:25%;
+    height:8%;
   }
   
   .grass3 {
     position: absolute;
     top: 92%;
     left: 32%;
-    width:400px;
+    width:25%;
+    height:8%;
   }
   
   .grass4 {
     position: absolute;
     top: 92%;
     left: 52%;
-    width:400px;
+    width:25%;
+    height:8%;
   }
   
   .grass5 {
     position: absolute;
     top: 92%;
     left: 72%;
-    width:400px;
+    width:25%;
+    height:8%;
   }
   
   
@@ -67,7 +72,8 @@ body {
     position: absolute;
     top: 92%;
     left: 92%;
-    width:400px;
+    width:25%;
+    height:8%;
   }
   
   

@@ -6,16 +6,42 @@
     <title>Hangman-Web</title>
     <link rel="icon" type="image/x-icon" href="../image/favicon.ico">
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js"></script>
 </head>
 <body>
 
 
-    <div class="music">
-        <audio id="myAudio" src="../music/utomp3.com - Anville Town Theme  Pokémon Black  White_320kbps.mp3" loop controls></audio>
-    </div>
+    <audio id="audioClick" src="../music/utomp3.com - Click  Sound Effect HD_320kbps.mp3"></audio>
+    <audio id="myAudio" src="../music/utomp3.com - Anville Town Theme  Pokémon Black  White_320kbps.mp3" autoplay loop preload ="auto"></audio>
+    <button id="toggleButton" class="music">
+        <img id="musicImage" src="../image/musicOn.png" alt="Music On">
+    </button>
+    
         
     <div>
          <a href="page1.html" class="btn">Jouer</a>
+    </div>
+
+    <div class="popup" id="popup-1">
+        <div class="overplay"></div>
+        <div class="content"> 
+            <div class="close-btn" onclick="togglepopup(); playAudio('audioClick')">&times;</div>
+            <h1>Comment Jouer</h1>
+            <p>Le but du pendu est de découvrir un mot dont les lettres ont été cachées et remplacées par des underscores. La difficulté du jeu se situe aux nombres de lettres à retrouver.</p>
+        </div>
+    </div>
+
+    <button onclick="togglepopup(); playAudio('audioClick')" class="btn-comment">Comment Jouer</button>
+
+    <button onclick="toggleCredits(); playAudio('audioClick')"class="btn-credits playAudio('audioClick')">Crédits</button>
+
+    <div class="popup" id="popup-credits">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="toggleCredits(); playAudio('audioClick')">&times;</div>
+            <h1>Crédits</h1>
+            <p> &#128187; &#128187; &#128187; &#128187; &#128187; &#128187; &#128187; &#128187; &#128187; &#128187;</p>
+        </div>
     </div>
 
         <img src="../image/clouds.png" class="clouds">
@@ -27,6 +53,6 @@
         <img src="../image/grass4.png" class="grass4">
         <img src="../image/grass5.png" class="grass5">
         <img src="../image/grass6.png" class="grass6">
- 
+    
 </body>
 </html>
