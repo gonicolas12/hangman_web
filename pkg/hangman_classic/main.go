@@ -85,7 +85,7 @@ func handleUserGuess(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/guess", gameHandler)
-	http.Handle("/", http.FileServer(http.Dir("../../web/")))
+	http.Handle("/", http.FileServer(http.Dir("../../web/templates/")))
 	fmt.Println("Le serveur fonctionne sur le port 8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
