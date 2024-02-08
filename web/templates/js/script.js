@@ -1,6 +1,3 @@
-/*// script.js
-alert("Jouer Hangman?");*/
-
 function togglepopup(){
     document.getElementById("popup-1").classList.toggle("active");
 }
@@ -26,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function() {
             // Si la lecture est en pause, démarrer l'audio
             audio.play();
             // Changer l'image en musique activée
-            musicImage.src = "../image/musicOn.png";
+            musicImage.src = "./image/musicOn.png";
             musicImage.alt = "Music On";
         } else {
             // Si la lecture est en cours, mettre en pause l'audio
             audio.pause();
             // Changer l'image en musique désactivée
-            musicImage.src = "../image/musicOff.png";
+            musicImage.src = "./image/musicOff.png";
             musicImage.alt = "Music Off";
         }
     });
