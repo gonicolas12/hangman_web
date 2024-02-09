@@ -14,6 +14,7 @@ type GameState struct {
 	GuessedLetters   string
 	Attempts         int
 	HangmanPositions []string
+	Status           string
 }
 
 var currentGameState GameState
@@ -38,6 +39,7 @@ func handleNewGame(w http.ResponseWriter, r *http.Request) {
 	}
 
 	currentGameState = GameState{
+		Status:         "en cours",
 		WordToGuess:    words.SelectRandomWord(wordList),
 		GuessedLetters: "",
 		Attempts:       10,
@@ -80,7 +82,22 @@ func handleUserGuess(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	if hasWon(currentGameState) {
+		currentGameState.Status = "victoire"
+	} else if currentGameState.Attempts <= 0 {
+		currentGameState.Status = "défaite"
+	}
+
 	json.NewEncoder(w).Encode(currentGameState)
+}
+
+func hasWon(state GameState) bool {
+	for _, char := range state.WordToGuess {
+		if char != ' ' && !strings.ContainsRune(state.GuessedLetters, char) {
+			return false
+		}
+	}
+	return true
 }
 
 func main() {

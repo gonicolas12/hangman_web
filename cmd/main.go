@@ -1,15 +1,19 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"log"
+	"os"
+	"os/exec"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello from Go!")
-}
-
 func main() {
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	cmd := exec.Command("go", "run", "./main.go", "./words.txt", "./hangman.txt")
+	cmd.Dir = "../pkg/hangman_classic"
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	err := cmd.Run()
+	if err != nil {
+		log.Fatal(err)
+	}
 }

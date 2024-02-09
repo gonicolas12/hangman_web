@@ -21,13 +21,13 @@
         <button type="submit">Soumettre</button>
     </form>
 
-        <img src="./image/clouds.png" class="clouds">
-        <img src="./image/grass1.png" class="grass1">
-        <img src="./image/grass2.png" class="grass2">
-        <img src="./image/grass3.png" class="grass3">
-        <img src="./image/grass4.png" class="grass4">
-        <img src="./image/grass5.png" class="grass5">
-        <img src="./image/grass6.png" class="grass6">
+    <img src="./image/clouds.png" class="clouds">
+    <img src="./image/grass1.png" class="grass1">
+    <img src="./image/grass2.png" class="grass2">
+    <img src="./image/grass3.png" class="grass3">
+    <img src="./image/grass4.png" class="grass4">
+    <img src="./image/grass5.png" class="grass5">
+    <img src="./image/grass6.png" class="grass6">
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -52,7 +52,11 @@
             })
             .then(response => response.json())
             .then(data => {
-                updateDisplay(data);
+                if (data.Status === "victoire" || data.Status === "défaite") {
+                    window.location.href = data.Status === "victoire" ? "/victory.html" : "/defeat.html";
+                } else {
+                    updateDisplay(data);
+                }
             });
         }
 
