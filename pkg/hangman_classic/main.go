@@ -5,11 +5,13 @@ import (
 	"fmt"
 	"hangman-classic/words"
 	"log"
+	"math/rand"
 	"net/http"
 	"strings"
 )
 
 type GameState struct {
+	Difficulty       string
 	WordToGuess      string
 	GuessedLetters   string
 	Attempts         int
@@ -31,6 +33,8 @@ func gameHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleNewGame(w http.ResponseWriter, r *http.Request) {
+	difficulty := r.URL.Query().Get("difficulty") // Nouveau: récupérer le paramètre de difficulté
+
 	wordsFilename := "words.txt"
 	wordList, err := words.ReadWordsFromFile(wordsFilename)
 	if err != nil {
@@ -38,10 +42,13 @@ func handleNewGame(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	wordToGuess := words.SelectRandomWord(wordList)
+	guessedLetters := revealLetters(wordToGuess, difficulty) // Modifié pour initialiser avec des lettres révélées
+
 	currentGameState = GameState{
-		Status:         "en cours",
-		WordToGuess:    words.SelectRandomWord(wordList),
-		GuessedLetters: "",
+		Difficulty:     difficulty,
+		WordToGuess:    wordToGuess,
+		GuessedLetters: guessedLetters,
 		Attempts:       10,
 		HangmanPositions: []string{
 			"hangman_steps/pendu0.png",
@@ -56,9 +63,38 @@ func handleNewGame(w http.ResponseWriter, r *http.Request) {
 			"hangman_steps/pendu9.png",
 			"hangman_steps/pendu10.png",
 		},
+		Status: "en cours",
 	}
 
 	json.NewEncoder(w).Encode(currentGameState)
+}
+
+func revealLetters(word string, difficulty string) string {
+	var n int
+	switch difficulty {
+	case "1": // Facile
+		n = len(word)/2 - 1
+	case "2": // Moyen
+		n = len(word)/2 - 2
+	case "3": // Difficile
+		n = 1
+	case "4": // Extrême
+		return "" // Ne révélez aucune lettre
+	default:
+		return ""
+	}
+
+	// Logique pour révéler `n` lettres uniques
+	revealedLetters := ""
+	for i := 0; i < n && i < len(word); i++ {
+		letter := string(word[rand.Intn(len(word))])
+		if !strings.Contains(revealedLetters, letter) {
+			revealedLetters += letter
+		} else {
+			i-- // Réessayer si la lettre est déjà choisie
+		}
+	}
+	return revealedLetters
 }
 
 func handleUserGuess(w http.ResponseWriter, r *http.Request) {

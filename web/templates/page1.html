@@ -21,21 +21,16 @@
         <button type="submit">Soumettre</button>
     </form>
 
-    <img src="./image/clouds.png" class="clouds">
-    <img src="./image/grass1.png" class="grass1">
-    <img src="./image/grass2.png" class="grass2">
-    <img src="./image/grass3.png" class="grass3">
-    <img src="./image/grass4.png" class="grass4">
-    <img src="./image/grass5.png" class="grass5">
-    <img src="./image/grass6.png" class="grass6">
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            initializeGame();
+            // Récupération de la difficulté depuis l'URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const difficulty = urlParams.get('difficulty');
+            initializeGame(difficulty);
         });
 
-        function initializeGame() {
-            fetch('/guess', { method: 'GET' })
+        function initializeGame(difficulty) {
+            fetch(`/guess?difficulty=${difficulty}`, { method: 'GET' })
                 .then(response => response.json())
                 .then(data => {
                     updateDisplay(data);
@@ -81,5 +76,13 @@
             document.getElementById('guessInput').value = '';
         });
     </script>
+
+    <img src="./image/clouds.png" class="clouds">
+    <img src="./image/grass1.png" class="grass1">
+    <img src="./image/grass2.png" class="grass2">
+    <img src="./image/grass3.png" class="grass3">
+    <img src="./image/grass4.png" class="grass4">
+    <img src="./image/grass5.png" class="grass5">
+    <img src="./image/grass6.png" class="grass6">
 </body>
 </html>
