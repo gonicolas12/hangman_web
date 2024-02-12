@@ -46,7 +46,24 @@ box-shadow: 0 .2em #894b088e;
 transform: translate(-50%, -50%);
 font-size: 125%;
 }
- 
+
+.btn-cpartie{
+  font-family: 'Pixelify Sans', sans-serif;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 10%;
+  text-align: center;
+  margin:5px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #894A08;
+  color:white;
+  border-radius: 7px;
+  box-shadow: 0 .2em #894b088e;
+  transform: translate(-50%, -50%);
+  font-size: 125%;
+  }
  
 .btn:hover{
   background:#c56b0b;
@@ -164,16 +181,17 @@ cursor: pointer;
  
 #toggleButton {
   position: absolute; /* Positionnement absolu par rapport au corps de la page */
-  top: 10px; /* À 10 pixels du haut de la page */
+  top: 20px; /* À 20 pixels du haut de la page */
   right: 30px; /* À 10 pixels du côté gauche de la page */
 }
  
 .music {
-  width: 50px; /* Largeur souhaitée */
+  width: 60px; /* Largeur souhaitée */
   height: 10px; /* Hauteur souhaitée */
 }
+
 .music img {
-  top: 95px;
+  top: 10px;
   width: 60px; /* Largeur souhaitée */
   height: 70px; /* Hauteur souhaitée */
 }
@@ -184,7 +202,22 @@ cursor: pointer;
   width: 350px;
   animation: clouds-animation 20s infinite linear;
 }
- 
+
+.selector {
+  position: absolute;
+  border: 6px solid #894A08;
+  font-size: larger;
+  font-family: 'Pixelify Sans', sans-serif;
+  background-color: #894A08;
+  color: white;
+  top: 53%;
+  left: 965px;
+  transform: translate(-50%, -50%);
+  width: 9%;
+  text-align: center;
+  cursor: pointer;
+}
+
 .pendu {
   position: absolute;
   top: 51%;
