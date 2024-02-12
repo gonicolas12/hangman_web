@@ -1,90 +1,157 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-body {
   margin: 0;
   padding: 0;
-  height: 100vh; /* Utilise 100% de la hauteur de la vue */
-  background: linear-gradient(#87CEEB, #E0F6FF);
-  overflow: hidden; 
-  }
+  box-sizing: border-box;
+}
+
+body {
+display: flex;
+place-items: center;
+min-height: 100vh;
+margin: 0;
+padding: 0;
+height: 100vh; 
+background: linear-gradient(#87CEEB, #E0F6FF);
+overflow: hidden; 
+}
+
+button, #submit{
+  background-color:#14ace3;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  top: -20%	
+}
+
+button:hover, #submit:hover{
+  background-color: white;
+  color: #4CAF50;	
+}
+button:active, #submit:active{
+  transform: translateY(4px);
+}
+
+#textBar{
+  padding: 10px 15px;
+}
+
+#keyboard {
+  padding: 10px;
+  transform: translateY(20%);
+  text-align: center;
+  position: absolute;
+  bottom: 15%; 
+  left: 50%; 
+  transform: translateX(-50%); /* Centre le clavier horizontalement */
+}
+
+form{
+  transform: translateY(260%);
+  text-align: center;
+}
+
+#toggleButton {
+  position: absolute; /* Positionnement absolu par rapport au corps de la page */
+  top: 10px; 
+  right: 30px; 
+}
+
+#audioPlayer {
+  display: none; 
+}
+.music {
+  width: 50px; 
+  height: 10px; 
+}
+.music img {
+  top: 95px;
+  width: 60px; 
+  height: 70px; 
+}
 
 
-  
 .clouds {
-    position: absolute;
-    width: 350px;
-    animation: clouds-animation 20s infinite linear;
-  }
-  
-  .pendu {
+  position: absolute;
+  width: 350px;
+  animation: clouds-animation 20s infinite linear;
+}
+
+#hangman-image {
     position: absolute;
     top: 51%;
     right: 10px;
     width: 26%;
+}
+
+#guessForm {
+  position: absolute;
+  bottom: 20px; 
+  right: 28%; 
+  top: 40%;
+  transform: translateX(-50%); 
+}
+
+.grass1 {
+  position: absolute;
+  top: 92%;
+  left: -2%;
+  width:25%;
+  height:8%;
+}
+
+.grass2 {
+  position: absolute;
+  top: 92%;
+  left: 12%;
+  width:25%;
+  height:8%;
+}
+
+.grass3 {
+  position: absolute;
+  top: 92%;
+  left: 32%;
+  width:25%;
+  height:8%;
+}
+
+.grass4 {
+  position: absolute;
+  top: 92%;
+  left: 52%;
+  width:25%;
+  height:8%;
+}
+
+.grass5 {
+  position: absolute;
+  top: 92%;
+  left: 72%;
+  width:25%;
+  height:8%;
+}
+
+.grass6 {
+  position: absolute;
+  top: 92%;
+  left: 92%;
+  width:25%;
+  height:8%;
+}
+
+@keyframes clouds-animation {
+  from {
+    right: -600px;
   }
 
-  .grass1 {
-    position: absolute;
-    top: 92%;
-    left: -2%;
-    width:25%;
-    height:8%;
+  to {
+    right: 100%;
   }
   
-  .grass2 {
-    position: absolute;
-    top: 92%;
-    left: 12%;
-    width:25%;
-    height:8%;
-  }
-  
-  .grass3 {
-    position: absolute;
-    top: 92%;
-    left: 32%;
-    width:25%;
-    height:8%;
-  }
-  
-  .grass4 {
-    position: absolute;
-    top: 92%;
-    left: 52%;
-    width:25%;
-    height:8%;
-  }
-  
-  .grass5 {
-    position: absolute;
-    top: 92%;
-    left: 72%;
-    width:25%;
-    height:8%;
-  }
-  
-  
-  .grass6 {
-    position: absolute;
-    top: 92%;
-    left: 92%;
-    width:25%;
-    height:8%;
-  }
-  
-  
-  @keyframes clouds-animation {
-    from {
-      right: -600px;
-    }
-  
-    to {
-      right: 100%;
-    }
-    
-  }
-  
+}

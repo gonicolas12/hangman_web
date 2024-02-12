@@ -3,7 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+ 
+h1, h2, p {
+  text-align: center;
+  font-family: 'Pixelify Sans', sans-serif;
+}
+ 
 body {
   margin: 0;
   padding: 0;
@@ -12,9 +17,9 @@ body {
   justify-content: center; /* Centre le contenu horizontalement */
   align-items: center; /* Centre le contenu verticalement */
   background: linear-gradient(#87CEEB, #E0F6FF);
-  overflow: hidden; 
+  overflow: hidden;
 }
-
+ 
 .hangman {
   position: absolute;
   top: 30%;
@@ -23,8 +28,9 @@ body {
   height: 14%;
   animation: hangman-animation 2s infinite linear;
 }
-
+ 
 .btn{
+font-family: 'Pixelify Sans', sans-serif;
 position: absolute;
 top: 60%;
 left: 50%;
@@ -40,14 +46,15 @@ box-shadow: 0 .2em #894b088e;
 transform: translate(-50%, -50%);
 font-size: 125%;
 }
-
-
+ 
+ 
 .btn:hover{
   background:#c56b0b;
   transition: background 0.5s;
 }
-
+ 
 .btn-comment{
+font-family: 'Pixelify Sans', sans-serif;
 position: absolute;
 top: 68%;
 left: 50%;
@@ -64,12 +71,13 @@ transform: translate(-50%, -50%);
 font-size: 105%;
 cursor: pointer;
 }
-
+ 
 .btn-comment:hover{
   background:#c56b0b;
 }
-
+ 
 .btn-credits{
+  font-family: 'Pixelify Sans', sans-serif;
   position: absolute;
   top: 76%;
   left: 50%;
@@ -86,15 +94,15 @@ cursor: pointer;
   font-size: 105%;
   cursor: pointer;
   }
-  
+ 
   .btn-credits:hover{
     background:#c56b0b;
   }
-
+ 
   /*#popup-credits {
-    /* Ajoute tes styles pour la position et l'apparence du popup 
+    /* Ajoute tes styles pour la position et l'apparence du popup
 }*/
-
+ 
 .popup .overlay {
   position: fixed;
   top: 0px;
@@ -104,14 +112,18 @@ cursor: pointer;
   z-index:1;
   display: none;
 }
-
+ 
 .popup .content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position:absolute;
   top: 50%;
   left:50%;
   transform: translate(-50%,-50%) scale(0);
   background : #894A08;
-  color: yellow;
+  color: white;
   width: 450px;
   height: 220px;
   z-index: 2;
@@ -119,7 +131,7 @@ cursor: pointer;
   padding: 20px;
   box-sizing: border-box;
 }
-
+ 
 .popup .close-btn {
   position: absolute;
   right: 20px;
@@ -135,27 +147,27 @@ cursor: pointer;
   border-radius: 50%;
   cursor: pointer;
 }
-
+ 
 .popup .active .overlay{
   display: block;
 }
-
+ 
 .popup.active .content{
   transition: all 300ms ease-in-out;
   transform: translate(-50%,-50%) scale(1);
 }
-
+ 
 #audioPlayer {
   display: none; /* Cacher l'élément audio */
 }
-
-
+ 
+ 
 #toggleButton {
   position: absolute; /* Positionnement absolu par rapport au corps de la page */
   top: 10px; /* À 10 pixels du haut de la page */
-  right: 30px; /* À 10 pixels du côté gauche de la page */ 
+  right: 30px; /* À 10 pixels du côté gauche de la page */
 }
-
+ 
 .music {
   width: 50px; /* Largeur souhaitée */
   height: 10px; /* Hauteur souhaitée */
@@ -165,21 +177,21 @@ cursor: pointer;
   width: 60px; /* Largeur souhaitée */
   height: 70px; /* Hauteur souhaitée */
 }
-
+ 
 .clouds {
   position: absolute;
   top: 1%;
   width: 350px;
   animation: clouds-animation 20s infinite linear;
 }
-
+ 
 .pendu {
   position: absolute;
   top: 51%;
   right: 10px;
   width: 26%;
 }
-
+ 
 .grass1 {
   position: absolute;
   top: 92%;
@@ -187,7 +199,7 @@ cursor: pointer;
   width:25%;
   height:8%;
 }
-
+ 
 .grass2 {
   position: absolute;
   top: 92%;
@@ -195,7 +207,7 @@ cursor: pointer;
   width:25%;
   height:8%;
 }
-
+ 
 .grass3 {
   position: absolute;
   top: 92%;
@@ -203,7 +215,7 @@ cursor: pointer;
   width:25%;
   height:8%;
 }
-
+ 
 .grass4 {
   position: absolute;
   top: 92%;
@@ -211,7 +223,7 @@ cursor: pointer;
   width:25%;
   height:8%;
 }
-
+ 
 .grass5 {
   position: absolute;
   top: 92%;
@@ -219,8 +231,8 @@ cursor: pointer;
   width:25%;
   height:8%;
 }
-
-
+ 
+ 
 .grass6 {
   position: absolute;
   top: 92%;
@@ -228,31 +240,32 @@ cursor: pointer;
   width:25%;
   height:8%;
 }
-
-
+ 
+ 
 @keyframes clouds-animation {
   from {
     right: -600px;
   }
-
+ 
   to {
     right: 100%;
   }
-  
+ 
 }
-
+ 
 @keyframes hangman-animation {
   0%{
     transform:translateY(0px) ;
   }
-
+ 
   50% {
     transform: translateY(-10px);
   }
-
+ 
   100% {
     transform: translateY(0px);
   }
-  
+ 
 }
-
+ 
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap')

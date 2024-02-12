@@ -6,13 +6,16 @@
     <title>Hangman-Web</title>
     <link rel="icon" type="image/x-icon" href="./image/favicon.ico">
     <link rel="stylesheet" href="./css/page1.css">
+    <script src="./js/script1.js"></script>
 </head>
 <body>
     <div id="hangman">
         <img id="hangman-image" src="" alt="Pendu" style="width: 30%; height: 30%;">
     </div>
     <div class="music">
-        <audio id="myAudio" src="./music/Lobby Music (Original Soundtrack).mp3" loop controls></audio>
+        <audio id="myAudio" src="./music/Lobby Music (Original Soundtrack).mp3" autoplay loop preload></audio>
+        <button id="toggleButton" class="music">
+            <img id="musicImage" src="./image/musicOn.png" alt="Music On">
     </div>
     <div id="word"></div>
     <div id="letters"></div>
@@ -69,6 +72,18 @@
             lettersElement.textContent = gameState.GuessedLetters.split('').join(' ');
         }
 
+        function input_Run(value) {
+            const guessInput = document.getElementById('guessInput');
+            guessInput.value += value;
+            guessInput.focus(); // Focus sur l'input après chaque pression de touche
+        }
+
+        function backspace() {
+            const guessInput = document.getElementById('guessInput');
+            guessInput.value = guessInput.value.substring(0, guessInput.value.length - 1);
+            guessInput.focus(); // Focus sur l'input après chaque suppression
+        }
+
         document.getElementById('guessForm').addEventListener('submit', (event) => {
             event.preventDefault();
             const guess = document.getElementById('guessInput').value;
@@ -76,6 +91,46 @@
             document.getElementById('guessInput').value = '';
         });
     </script>
+
+    <div id="keyboard">
+                
+        <div id="secondLine">
+            <button type="button" value="q" onclick="input_Run(this.value);">q</button>
+            <button type="button" value="w" onclick="input_Run(this.value);">w</button>
+            <button type="button" value="e" onclick="input_Run(this.value);">e</button>
+            <button type="button" value="r" onclick="input_Run(this.value);">r</button>
+            <button type="button" value="t" onclick="input_Run(this.value);">t</button>
+            <button type="button" value="y" onclick="input_Run(this.value);">y</button>
+            <button type="button" value="u" onclick="input_Run(this.value);">u</button>
+            <button type="button" value="i" onclick="input_Run(this.value);">i</button>
+            <button type="button" value="o" onclick="input_Run(this.value);">o</button>
+            <button type="button" value="p" onclick="input_Run(this.value);">p</button>
+        </div>
+        <div id="thirdLine">
+            <button type="button" value="a" onclick="input_Run(this.value);">a</button>
+            <button type="button" value="s" onclick="input_Run(this.value);">s</button>
+            <button type="button" value="d" onclick="input_Run(this.value);">d</button>
+            <button type="button" value="f" onclick="input_Run(this.value);">f</button>
+            <button type="button" value="g" onclick="input_Run(this.value);">g</button>
+            <button type="button" value="h" onclick="input_Run(this.value);">h</button>
+            <button type="button" value="j" onclick="input_Run(this.value);">j</button>
+            <button type="button" value="k" onclick="input_Run(this.value);">k</button>
+            <button type="button" value="l" onclick="input_Run(this.value);">l</button>
+        </div>
+        <div id="fourthLine1">
+            <button type="button" value="z" onclick="input_Run(this.value);">z</button>
+            <button type="button" value="x" onclick="input_Run(this.value);">x</button>
+            <button type="button" value="c" onclick="input_Run(this.value);">c</button>
+            <button type="button" value="v" onclick="input_Run(this.value);">v</button>
+            <button type="button" value="b" onclick="input_Run(this.value);">b</button>
+            <button type="button" value="n" onclick="input_Run(this.value);">n</button>
+            <button type="button" value="m" onclick="input_Run(this.value);">m</button>
+        </div>
+        <div id="fourthLine2">
+            <button type="button" value=" " onclick="input_Run(this.value);">Space</button>
+            <button type="button" onclick="backspace();">Backspace</button>
+        </div>
+    </div>
 
     <img src="./image/clouds.png" class="clouds">
     <img src="./image/grass1.png" class="grass1">

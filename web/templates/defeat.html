@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman-Web</title>
@@ -9,14 +12,14 @@
     <script src="./js/script.js"></script>
 </head>
 <body>
-
-
+ 
+ 
     <audio id="myAudio" src="./music/Bruitage trompette.mp3" autoplay preload ="auto"></audio>
-
-    <h1>Défaite</h1>
-    <p>Malheureusement, vous n'avez pas trouvé le mot à temps.</p>
-    <a href="/difficulty.html">Essayer à nouveau</a>
-
+<div>
+    <h1>Défaite...</h1>
+    <h2>Malheureusement, vous n'avez pas trouvé le mot à temps.</h2>
+    <a href="/difficulty.html" class="btn">Essayer à nouveau</a>
+</div>
         <img src="./image/clouds.png" class="clouds">
         <img src="./image/pendu.png" class="pendu">
         <img src="./image/Hangman.png" class="hangman">
@@ -26,6 +29,6 @@
         <img src="./image/grass4.png" class="grass4">
         <img src="./image/grass5.png" class="grass5">
         <img src="./image/grass6.png" class="grass6">
-
+ 
 </body>
 </html>
