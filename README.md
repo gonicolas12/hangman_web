@@ -6,7 +6,7 @@ Welcome to the Hangman game ! This classic word-guessing game challenges players
 ## Installation
 1. Clone the repository.
 2. Ensure Go is installed on your machine.
-3. Execute the program with `go run main.go` in the `cmd` directory
+3. Execute the program with the command `go run main.go` in the `cmd` directory
 
 ## How to Play
 - Click on `Jouer` to begin a game.
