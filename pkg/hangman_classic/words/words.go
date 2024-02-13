@@ -1,27 +1,10 @@
 package words
 
 import (
-	"fmt"
 	"io/ioutil"
 	"math/rand"
 	"strings"
 )
-
-// Print the welcome message in ascii art
-
-func PrintAsciiArtWelcome() {
-	// hangman in ascii art
-	fmt.Println("  _   _                                          \n | | | | __ _ _ __   __ _ _ __ ___   __ _ _ __  \n | |_| |/ _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ")
-	fmt.Println(" |  _  | (_| | | | | (_| | | | | | | (_| | | | |")
-	fmt.Println(" |_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|")
-	fmt.Println("                    |___/                       ")
-	// game in ascii art
-	fmt.Println("  ____    ")
-	fmt.Println(" / ___| __ _ _ __ ___   ___  ")
-	fmt.Println("| |  _ / _` | '_ ` _ \\ / _ \\")
-	fmt.Println("| |_| | (_| | | | | | |  __/")
-	fmt.Println(" \\____|\\__,_|_| |_| |_|\\___|")
-}
 
 // Reads the words from the given file and returns them as a slice of strings
 
@@ -40,16 +23,32 @@ func SelectRandomWord(words []string) string {
 	return words[rand.Intn(len(words))]
 }
 
-// Display he word to guess that have been guessed so far
+// Reveal a number of letters from the given word based on the given difficulty
 
-func DisplayWord(word, guessedLetters string) string {
-	displayedWord := ""
-	for _, char := range word {
-		if strings.ContainsRune(guessedLetters, char) {
-			displayedWord += string(char) + " "
+func RevealLetters(word string, difficulty string) string {
+	var n int
+	switch difficulty {
+	case "1": // Facile
+		n = len(word)/2 - 1
+	case "2": // Moyen
+		n = len(word)/2 - 2
+	case "3": // Difficile
+		n = 1
+	case "4": // Extrême
+		return "" // Ne révélez aucune lettre
+	default:
+		return ""
+	}
+
+	// Logique pour révéler `n` lettres uniques
+	revealedLetters := ""
+	for i := 0; i < n && i < len(word); i++ {
+		letter := string(word[rand.Intn(len(word))])
+		if !strings.Contains(revealedLetters, letter) {
+			revealedLetters += letter
 		} else {
-			displayedWord += "_ "
+			i-- // Réessayer si la lettre est déjà choisie
 		}
 	}
-	return displayedWord
+	return revealedLetters
 }
