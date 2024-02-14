@@ -1,29 +1,12 @@
 package words
 
 import (
-	"fmt"
 	"io/ioutil"
 	"math/rand"
 	"strings"
 )
 
-// Print the welcome message in ascii art
-
-func PrintAsciiArtWelcome() {
-	// hangman in ascii art
-	fmt.Println("  _   _                                          \n | | | | __ _ _ __   __ _ _ __ ___   __ _ _ __  \n | |_| |/ _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ ")
-	fmt.Println(" |  _  | (_| | | | | (_| | | | | | | (_| | | | |")
-	fmt.Println(" |_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|")
-	fmt.Println("                    |___/                       ")
-	// game in ascii art
-	fmt.Println("  ____    ")
-	fmt.Println(" / ___| __ _ _ __ ___   ___  ")
-	fmt.Println("| |  _ / _` | '_ ` _ \\ / _ \\")
-	fmt.Println("| |_| | (_| | | | | | |  __/")
-	fmt.Println(" \\____|\\__,_|_| |_| |_|\\___|")
-}
-
-// Reads the words from the given file and returns them as a slice of strings
+// Lit les mots à partir d'un fichier et les retourne sous forme de tranche de chaînes
 
 func ReadWordsFromFile(filename string) ([]string, error) {
 	content, err := ioutil.ReadFile(filename)
@@ -34,22 +17,40 @@ func ReadWordsFromFile(filename string) ([]string, error) {
 	return words, nil
 }
 
-// Select a random word from the given slice of strings
+// Sélectionne un mot aléatoire à partir de la liste de mots
 
 func SelectRandomWord(words []string) string {
 	return words[rand.Intn(len(words))]
 }
 
-// Display he word to guess that have been guessed so far
+// Révèle un certain nombre de lettres du mot en fonction de la difficulté
 
-func DisplayWord(word, guessedLetters string) string {
-	displayedWord := ""
-	for _, char := range word {
-		if strings.ContainsRune(guessedLetters, char) {
-			displayedWord += string(char) + " "
+func RevealLetters(word string, difficulty string) string {
+	var n int
+	switch difficulty {
+	case "1": // Facile
+		n = len(word)/2 - 1
+	case "2": // Moyen
+		n = len(word)/2 - 2
+	case "3": // Difficile
+		n = 1
+	case "4": // Extrême
+		return "" // Ne révélez aucune lettre
+	default:
+		return ""
+	}
+
+	// Logique pour révéler 'n' lettres uniques
+	revealedLetters := ""
+	for i := 0; i < n && i < len(word); i++ {
+		letter := string(word[rand.Intn(len(word))])
+		if !strings.Contains(revealedLetters, letter) {
+			// Si la lettre n'est pas déjà révélée, ajoutez-la à la liste des lettres révélées
+			revealedLetters += letter
 		} else {
-			displayedWord += "_ "
+			i-- // Réessayer si la lettre est déjà choisie
 		}
 	}
-	return displayedWord
+	// Remplacez les lettres révélées par des tirets dans le mot
+	return revealedLetters
 }

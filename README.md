@@ -6,10 +6,10 @@ Welcome to the Hangman game ! This classic word-guessing game challenges players
 ## Installation
 1. Clone the repository.
 2. Ensure Go is installed on your machine.
-3. Execute the program with `go run main.go words.txt hangman.txt`
+3. Execute the program with the command `go run main.go` in the `cmd` directory
 
 ## How to Play
-- Run the program and a word will be chosen randomly.
+- Click on `Jouer` to begin a game.
 - Select a difficulty
 - You'll see the word represented by underscores, indicating the number of letters.
 - Guess a letter at a time, or attempt to guess the whole word.
@@ -17,10 +17,11 @@ Welcome to the Hangman game ! This classic word-guessing game challenges players
 - The game ends when you either guess the word correctly or run out of attempts.
 
 ## Features
-- ASCII art representation of the hangman and welcome message.
-- Ability to guess single letters or the entire word.
-- Save and resume game functionality (start-and-stop)
 - Customizable word list and hangman stages.
+- Button to put the music on and off.
+- Other buttons which works.
+- Different pages when you lose or when you win.
+- Different musics free to use (I think).
 
 ## Difficulties
 - Easy : the number of letters that are revealed at the beginning of the game is the length of the word divided by 2 minus 1
