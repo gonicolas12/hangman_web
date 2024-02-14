@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// Reads the words from the given file and returns them as a slice of strings
+// Lit les mots à partir d'un fichier et les retourne sous forme de tranche de chaînes
 
 func ReadWordsFromFile(filename string) ([]string, error) {
 	content, err := ioutil.ReadFile(filename)
@@ -17,13 +17,13 @@ func ReadWordsFromFile(filename string) ([]string, error) {
 	return words, nil
 }
 
-// Select a random word from the given slice of strings
+// Sélectionne un mot aléatoire à partir de la liste de mots
 
 func SelectRandomWord(words []string) string {
 	return words[rand.Intn(len(words))]
 }
 
-// Reveal a number of letters from the given word based on the given difficulty
+// Révèle un certain nombre de lettres du mot en fonction de la difficulté
 
 func RevealLetters(word string, difficulty string) string {
 	var n int
@@ -40,15 +40,17 @@ func RevealLetters(word string, difficulty string) string {
 		return ""
 	}
 
-	// Logique pour révéler `n` lettres uniques
+	// Logique pour révéler 'n' lettres uniques
 	revealedLetters := ""
 	for i := 0; i < n && i < len(word); i++ {
 		letter := string(word[rand.Intn(len(word))])
 		if !strings.Contains(revealedLetters, letter) {
+			// Si la lettre n'est pas déjà révélée, ajoutez-la à la liste des lettres révélées
 			revealedLetters += letter
 		} else {
 			i-- // Réessayer si la lettre est déjà choisie
 		}
 	}
+	// Remplacez les lettres révélées par des tirets dans le mot
 	return revealedLetters
 }
