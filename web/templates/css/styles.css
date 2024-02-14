@@ -63,7 +63,13 @@ font-size: 125%;
   box-shadow: 0 .2em #894b088e;
   transform: translate(-50%, -50%);
   font-size: 125%;
+  cursor: pointer;
   }
+
+.btn-cpartie:hover{
+   background:#c56b0b;
+   transition: background 0.5s;
+}
  
 .btn:hover{
   background:#c56b0b;
