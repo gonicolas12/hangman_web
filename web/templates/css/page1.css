@@ -70,31 +70,49 @@ form{
   height: 10px; 
 }
 .music img {
-  top: 95px;
+  top: 10px;
   width: 60px; 
   height: 70px; 
 }
 
-
 .clouds {
   position: absolute;
+  top: 1%;
   width: 350px;
-  animation: clouds-animation 20s infinite linear;
+  animation: clouds-animation 20s infinite linear;;
 }
 
 #hangman-image {
-    position: absolute;
-    top: 51%;
-    right: 10px;
-    width: 26%;
+  position: absolute;
+  top: 51%;
+  right: 10px;
+  width: 26%;
 }
 
 #guessForm {
   position: absolute;
-  bottom: 20px; 
-  right: 28%; 
-  top: 40%;
-  transform: translateX(-50%); 
+  bottom: 50%; 
+  right: 30%; 
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center; 
+}
+
+#guessInput {
+  margin-right: 10px; /* Espacement entre le champ de texte et le bouton */
+}
+
+#word {
+  position: absolute;
+  bottom: 65%; 
+  right: 45%; 
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center; 
+  font-size: 24px; /* Taille du texte */
+  color: #333; /* Couleur du texte */
+  text-transform: uppercase; /* Convertir en majuscules */
+  /* Autres styles personnalisés */
 }
 
 .grass1 {
@@ -154,4 +172,8 @@ form{
     right: 100%;
   }
   
+}
+
+#letter{
+  text-align: center;
 }

@@ -136,7 +136,7 @@ cursor: pointer;
   justify-content: center;
   align-items: center;
   position:absolute;
-  top: 50%;
+  top: 40%;
   left:50%;
   transform: translate(-50%,-50%) scale(0);
   background : #894A08;
@@ -147,6 +147,8 @@ cursor: pointer;
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: #222 ;
 }
  
 .popup .close-btn {
