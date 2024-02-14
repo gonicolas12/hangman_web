@@ -160,7 +160,7 @@ cursor: pointer;
 .popup .close-btn {
   position: absolute;
   right: 20px;
-  top: 20px;
+  top: 8px;
   width: 30px;
   height: 30px;
   background: #222;
@@ -219,9 +219,9 @@ cursor: pointer;
   background-color: #894A08;
   color: white;
   top: 53%;
-  left: 965px;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 9%;
+  width: 9%;;
   text-align: center;
   cursor: pointer;
 }
