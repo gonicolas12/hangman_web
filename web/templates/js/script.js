@@ -16,13 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
     var audio = document.getElementById("myAudio");
     var musicImage = document.getElementById("musicImage");
 
-    // Ajout d'un gestionnaire d'événements pour le clic sur le bouton
     toggleButton.addEventListener("click", function() {
         // Vérification de l'état de lecture audio actuel
         if (audio.paused) {
-            // Si la lecture est en pause, démarrer l'audio
+            
             audio.play();
-            // Changer l'image en musique activée
+        
             musicImage.src = "./image/musicOn.png";
             musicImage.alt = "Music On";
         } else {

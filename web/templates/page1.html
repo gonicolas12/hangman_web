@@ -14,14 +14,15 @@
         <img id="hangman-image" src="" alt="Pendu">
     </div>
     <div class="music">
-        <audio id="myAudio" src="./music/Lobby Music (Original Soundtrack).mp3" autoplay loop preload></audio>
+        <audio id="myAudio" src="./music/Lobby Music (Original Soundtrack).mp3" autoplay loop preload ="auto"></audio>
         <button id="toggleButton" class="music">
             <img id="musicImage" src="./image/musicOn.png" alt="Music On">
     </div>
     
     <div id="word"></div>
 
-    <div id="letters"></div>
+    
+    <div class="centered" id="letters"></div>
 
     <form id="guessForm">
         <input type="text" id="guessInput">
@@ -99,8 +100,8 @@
     <div id="keyboard">
                 
         <div id="secondLine">
-            <button type="button" value="q" onclick="input_Run(this.value);">q</button>
-            <button type="button" value="w" onclick="input_Run(this.value);">w</button>
+            <button type="button" value="a" onclick="input_Run(this.value);">a</button>
+            <button type="button" value="z" onclick="input_Run(this.value);">z</button>
             <button type="button" value="e" onclick="input_Run(this.value);">e</button>
             <button type="button" value="r" onclick="input_Run(this.value);">r</button>
             <button type="button" value="t" onclick="input_Run(this.value);">t</button>
@@ -111,7 +112,7 @@
             <button type="button" value="p" onclick="input_Run(this.value);">p</button>
         </div>
         <div id="thirdLine">
-            <button type="button" value="a" onclick="input_Run(this.value);">a</button>
+            <button type="button" value="q" onclick="input_Run(this.value);">q</button>
             <button type="button" value="s" onclick="input_Run(this.value);">s</button>
             <button type="button" value="d" onclick="input_Run(this.value);">d</button>
             <button type="button" value="f" onclick="input_Run(this.value);">f</button>
@@ -122,7 +123,7 @@
             <button type="button" value="l" onclick="input_Run(this.value);">l</button>
         </div>
         <div id="fourthLine1">
-            <button type="button" value="z" onclick="input_Run(this.value);">z</button>
+            <button type="button" value="w" onclick="input_Run(this.value);">w</button>
             <button type="button" value="x" onclick="input_Run(this.value);">x</button>
             <button type="button" value="c" onclick="input_Run(this.value);">c</button>
             <button type="button" value="v" onclick="input_Run(this.value);">v</button>

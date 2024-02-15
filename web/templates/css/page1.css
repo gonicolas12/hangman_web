@@ -57,9 +57,12 @@ form{
 }
 
 #toggleButton {
-  position: absolute; /* Positionnement absolu par rapport au corps de la page */
+  position: absolute; 
   top: 10px; 
   right: 30px; 
+  border:none;
+  background: transparent;
+
 }
 
 #audioPlayer {
@@ -99,7 +102,7 @@ form{
 }
 
 #guessInput {
-  margin-right: 10px; /* Espacement entre le champ de texte et le bouton */
+  margin-right: 10px; /
 }
 
 #word {
@@ -109,11 +112,23 @@ form{
   transform: translateX(-50%);
   display: flex;
   align-items: center; 
-  font-size: 24px; /* Taille du texte */
-  color: #333; /* Couleur du texte */
-  text-transform: uppercase; /* Convertir en majuscules */
-  /* Autres styles personnalisés */
+  font-size: 24px;
+  color: #333; 
+  text-transform: uppercase; 
 }
+
+.centered {
+  top: 70%;
+  display: flex;
+  justify-content: center;
+  width: 100%; 
+}
+
+#letters {
+  margin-left: -5%;
+  margin-top: -10%; /* ou toute autre valeur en pourcentage qui vous convient */
+}
+
 
 .grass1 {
   position: absolute;
@@ -174,6 +189,4 @@ form{
   
 }
 
-#letter{
-  text-align: center;
-}
+

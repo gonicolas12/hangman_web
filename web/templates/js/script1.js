@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
             audio.play();
             
-            musicImage.src = "./image/musicOn";
+            musicImage.src = "./image/musicOn.png";
             musicImage.alt = "Music On";
         } else {
             

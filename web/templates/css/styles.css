@@ -12,10 +12,10 @@ h1, h2, p {
 body {
   margin: 0;
   padding: 0;
-  height: 100vh; /* Utilise 100% de la hauteur de la vue */
+  height: 100vh; 
   display: flex;
-  justify-content: center; /* Centre le contenu horizontalement */
-  align-items: center; /* Centre le contenu verticalement */
+  justify-content: center; 
+  align-items: center; 
   background: linear-gradient(#87CEEB, #E0F6FF);
   overflow: hidden;
 }
@@ -122,10 +122,6 @@ cursor: pointer;
     background:#c56b0b;
   }
  
-  /*#popup-credits {
-    /* Ajoute tes styles pour la position et l'apparence du popup
-}*/
- 
 .popup .overlay {
   position: fixed;
   top: 0px;
@@ -183,25 +179,27 @@ cursor: pointer;
 }
  
 #audioPlayer {
-  display: none; /* Cacher l'élément audio */
+  display: none; /* Cache l'élément audio */
 }
  
  
 #toggleButton {
-  position: absolute; /* Positionnement absolu par rapport au corps de la page */
-  top: 20px; /* À 20 pixels du haut de la page */
-  right: 30px; /* À 10 pixels du côté gauche de la page */
+  position: absolute;
+  top: 20px; 
+  right: 30px;
+  border:none;
+  background: transparent; 
 }
  
 .music {
-  width: 60px; /* Largeur souhaitée */
-  height: 10px; /* Hauteur souhaitée */
+  width: 60px; 
+  height: 10px; 
 }
 
 .music img {
   top: 10px;
-  width: 60px; /* Largeur souhaitée */
-  height: 70px; /* Hauteur souhaitée */
+  width: 60px; 
+  height: 70px; 
 }
  
 .clouds {
